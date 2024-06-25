@@ -1,8 +1,12 @@
-import win32gui as win
+import pywinauto.findwindows
+from pywinauto import Application
 
-# if you find the windows, window_handle is not zero
-window_handle = win.FindWindow(None, '打开')
-# left, right, top, bottom = win.GetWindowRgn(window_handle)
-# print(left, right, top, bottom)
-print(window_handle)
+if __name__ == '__main__':
+    app = Application().connect(title='打开')
+    window = app.window(title='打开')
+    children = window.children()
+    buttons = [child for child in children if child.window_text()]
+    for button in buttons:
+        if button.element_info.name.find('打开') != -1:
+            print(button)
 
