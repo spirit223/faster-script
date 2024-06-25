@@ -1,6 +1,6 @@
 import win32gui as win
 
-# if find the windows, window_handle is not be zero
+# if you find the windows, window_handle is not zero
 window_handle = win.FindWindow(None, '打开')
 # left, right, top, bottom = win.GetWindowRgn(window_handle)
 # print(left, right, top, bottom)
